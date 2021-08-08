@@ -9,7 +9,7 @@
 ### Немного о реализации
 
 * Абстрактный класс `Shape` содержит функционал для кэширования (ленивая инициализация) площади.
-* Класс `Distance` является обёрткой над значением `double`, валидируя его при создании объекта.
+* Структура `Distance` является обёрткой над значением `double`, валидируя его при создании объекта.
 * `Triangle` имеет дополнительное свойство `IsEquilateralTriangle` для определения, является ли треугольник равносторонним.
 * В целях оптимизации операция возведения в квадрат реализована перемножением значения на себя - см. [сравнение на SharpLab](https://sharplab.io/#v2:C4LghgzgtgPgAgJgIwFgBQcDMACR2DC2A3utmbjnEgGzYAmA9gK4BGANgKbYCyTbwASwAObAQGMwghgDsAFI1adsANzBsAlNgC8APhVrsAKn1sA3KXIWyWXDXrN2XbpIAWABQYB3eQ6WqN2nrOwC4AdB7e/gA02Ajq5mgAvkA===).
 * Интерфейс `IShape` наследуется от интерфейса `IEquatable<IShape>`, что позволяет сравнивать фигуры (реализующие данный интерфейс).
