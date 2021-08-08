@@ -1,0 +1,13 @@
+<Project>
+	<PropertyGroup>
+		<Authors>Vitaliya Chumakova</Authors>
+		<Copyright>Copyright © 2021-$([System.DateTime]::UtcNow.Year) Vitaliya Chumakova</Copyright>
+		<Deterministic>true</Deterministic>
+		<ErrorReport>none</ErrorReport>
+		<LangVersion>latest</LangVersion>
+		<PackageProjectUrl>https://github.com/Vital7/ShapeLib</PackageProjectUrl>
+		<RepositoryType>Git</RepositoryType>
+		<RepositoryUrl>https://github.com/Vital7/ShapeLib.git</RepositoryUrl>
+		<Version>1.0.0.0</Version>
+	</PropertyGroup>
+</Project>
