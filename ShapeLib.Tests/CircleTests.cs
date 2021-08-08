@@ -15,9 +15,9 @@ namespace ShapeLib.Tests {
 
 			Array.Sort(circles);
 
-			Assert.AreEqual(circles[0].Radius, 4);
-			Assert.AreEqual(circles[1].Radius, 5);
-			Assert.AreEqual(circles[2].Radius, 6);
+			Assert.AreEqual(circles[0].Radius.Value, 4);
+			Assert.AreEqual(circles[1].Radius.Value, 5);
+			Assert.AreEqual(circles[2].Radius.Value, 6);
 
 			Assert.AreEqual(circles[0].CompareTo(null), 1);
 			Assert.AreEqual(circles[0].CompareTo(circles[0]), 0);
