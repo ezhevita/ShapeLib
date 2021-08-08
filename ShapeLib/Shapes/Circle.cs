@@ -11,7 +11,7 @@ namespace ShapeLib.Shapes {
 		/// <summary>
 		///		Radius value of the circle.
 		/// </summary>
-		public double Radius { get; }
+		public Distance Radius { get; }
 
 		public override string ShapeName => nameof(Circle);
 
@@ -32,7 +32,7 @@ namespace ShapeLib.Shapes {
 
 		public bool Equals(Circle? other) => (other != null) && Radius.Equals(other.Radius);
 
-		protected override double CalculateSquare() => Math.PI * Radius * Radius;
+		protected override double CalculateSquare() => Math.PI * Radius.Value * Radius.Value;
 
 		public override bool Equals(IShape other) {
 			if (ReferenceEquals(this, other)) {

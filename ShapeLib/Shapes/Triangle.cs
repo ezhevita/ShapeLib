@@ -15,7 +15,9 @@ namespace ShapeLib.Shapes {
 		/// <param name="thirdSide">Third side of the triangle.</param>
 		/// <exception cref="ArgumentException">Thrown if any of the sides is invalid or it's impossible to compose a triangle with specified sides.</exception>
 		public Triangle(Distance firstSide, Distance secondSide, Distance thirdSide) {
-			if ((firstSide + secondSide <= thirdSide) || (firstSide + thirdSide <= secondSide) || (secondSide + thirdSide <= firstSide)) {
+			if ((firstSide.Value + secondSide.Value <= thirdSide.Value) ||
+				(firstSide.Value + thirdSide.Value <= secondSide.Value) ||
+				(secondSide.Value + thirdSide.Value <= firstSide.Value)) {
 				throw new ArgumentException("Triangle can't be created from sides");
 			}
 
@@ -38,7 +40,7 @@ namespace ShapeLib.Shapes {
 		///		Determines whether the triangle is equilateral (all of the sides are equal).
 		/// </summary>
 		// ReSharper disable once CompareOfFloatsByEqualityOperator - values are stored as is from user input, so it won't differ if user input is the same
-		public bool IsEquilateralTriangle => Sides.Skip(1).All(side => side == Sides[0]);
+		public bool IsEquilateralTriangle => Sides.Skip(1).All(side => side.Value == Sides[0].Value);
 
 		public override string ShapeName => nameof(Triangle);
 
@@ -64,7 +66,7 @@ namespace ShapeLib.Shapes {
 		protected override double CalculateSquare() {
 			double halfPerimeter = Sides.Select(x => x.Value).Sum() / 2;
 
-			return Math.Sqrt(Sides.Aggregate(halfPerimeter, (value, side) => value * (halfPerimeter - side)));
+			return Math.Sqrt(Sides.Aggregate(halfPerimeter, (value, side) => value * (halfPerimeter - side.Value)));
 		}
 
 		public override bool Equals(IShape other) {
