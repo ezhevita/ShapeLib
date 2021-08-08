@@ -62,6 +62,7 @@ namespace ShapeLib.Shapes {
 			double[] orderedSides = Sides.OrderBy(x => x).ToArray();
 
 			// ReSharper disable once CompareOfFloatsByEqualityOperator - it should work fine on multiplication
+			// Uses multiplication by itself instead of Math.Pow since it's faster
 			return orderedSides[0] * orderedSides[0] + orderedSides[1] * orderedSides[1] == orderedSides[2] * orderedSides[2];
 		}
 
