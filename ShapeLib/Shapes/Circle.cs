@@ -6,11 +6,7 @@ namespace ShapeLib.Shapes {
 		///		Create circle with specified radius.
 		/// </summary>
 		/// <param name="radius">Radius value of the circle.</param>
-		public Circle(double radius) {
-			ValidateValue(radius, nameof(radius));
-
-			Radius = radius;
-		}
+		public Circle(Distance radius) => Radius = radius;
 
 		/// <summary>
 		///		Radius value of the circle.

@@ -7,7 +7,7 @@ namespace ShapeLib.Tests {
 	public class CircleTests {
 		[TestMethod]
 		public void ShouldBeComparable() {
-			Circle[] circles = { new(6), new(4), new(5) };
+			Circle[] circles = { new(new Distance(6)), new(new Distance(4)), new(new Distance(5)) };
 
 			Assert.AreEqual(circles[0].CompareTo(circles[1]), 1);
 			Assert.AreEqual(circles[1].CompareTo(circles[2]), -1);
@@ -25,8 +25,8 @@ namespace ShapeLib.Tests {
 
 		[TestMethod]
 		public void ShouldBeEqual() {
-			Circle firstCircle = new(6);
-			Circle secondCircle = new(6.0d);
+			Circle firstCircle = new(new Distance(6));
+			Circle secondCircle = new(new Distance(6.0d));
 
 			Assert.AreEqual(firstCircle.Radius, secondCircle.Radius);
 			Assert.AreEqual(firstCircle.GetHashCode(), secondCircle.GetHashCode());
@@ -43,46 +43,18 @@ namespace ShapeLib.Tests {
 
 		[TestMethod]
 		public void ShouldHaveCorrectName() {
-			IShape circle = new Circle(3);
+			IShape circle = new Circle(new Distance(3));
 
 			Assert.AreEqual(circle.ShapeName, nameof(Circle));
 		}
 
 		[TestMethod]
 		public void ShouldHaveCorrectSquare() {
-			IShape firstCircle = new Circle(10 / Math.Sqrt(Math.PI));
-			IShape secondCircle = new Circle(1);
+			IShape firstCircle = new Circle(new Distance(10 / Math.Sqrt(Math.PI)));
+			IShape secondCircle = new Circle(new Distance(1));
 
 			Assert.AreEqual(firstCircle.Square, 100.0d, 0.0000000001d);
 			Assert.AreEqual(secondCircle.Square, Math.PI, 0.0000000001d);
-		}
-
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		[TestMethod]
-		public void ShouldThrowOnNaNRadius() {
-			Circle _ = new(double.NaN);
-			Assert.Fail();
-		}
-
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		[TestMethod]
-		public void ShouldThrowOnNegativeInfiniteRadius() {
-			Circle _ = new(double.NegativeInfinity);
-			Assert.Fail();
-		}
-
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		[TestMethod]
-		public void ShouldThrowOnNegativeRadius() {
-			Circle _ = new(-5);
-			Assert.Fail();
-		}
-
-		[ExpectedException(typeof(ArgumentOutOfRangeException))]
-		[TestMethod]
-		public void ShouldThrowOnPositiveInfiniteRadius() {
-			Circle _ = new(double.PositiveInfinity);
-			Assert.Fail();
 		}
 	}
 }

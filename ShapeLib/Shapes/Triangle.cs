@@ -5,7 +5,7 @@ using System.Linq;
 namespace ShapeLib.Shapes {
 	public class Triangle : Shape, IEquatable<Triangle> {
 		private readonly Lazy<bool> CalculatedIsRightTriangle;
-		private readonly double[] SortedSides;
+		private readonly Distance[] SortedSides;
 
 		/// <summary>
 		///		Create triangle instance with specified sides.
@@ -14,11 +14,7 @@ namespace ShapeLib.Shapes {
 		/// <param name="secondSide">Second side of the triangle.</param>
 		/// <param name="thirdSide">Third side of the triangle.</param>
 		/// <exception cref="ArgumentException">Thrown if any of the sides is invalid or it's impossible to compose a triangle with specified sides.</exception>
-		public Triangle(double firstSide, double secondSide, double thirdSide) {
-			ValidateValue(firstSide, nameof(firstSide));
-			ValidateValue(secondSide, nameof(secondSide));
-			ValidateValue(thirdSide, nameof(thirdSide));
-
+		public Triangle(Distance firstSide, Distance secondSide, Distance thirdSide) {
 			if ((firstSide + secondSide <= thirdSide) || (firstSide + thirdSide <= secondSide) || (secondSide + thirdSide <= firstSide)) {
 				throw new ArgumentException("Triangle can't be created from sides");
 			}
@@ -31,7 +27,7 @@ namespace ShapeLib.Shapes {
 		/// <summary>
 		///		Sides of the triangle, contains 3 elements.
 		/// </summary>
-		public IReadOnlyList<double> Sides { get; }
+		public IReadOnlyList<Distance> Sides { get; }
 
 		/// <summary>
 		///		Determines whether the triangle is right (one of the angles is 90°).
@@ -59,14 +55,14 @@ namespace ShapeLib.Shapes {
 		}
 
 		private bool CalculateIsRightTriangle() {
-			double[] orderedSides = Sides.OrderBy(x => x).ToArray();
+			double[] orderedSides = Sides.Select(x => x.Value).OrderBy(x => x).ToArray();
 
 			// ReSharper disable once CompareOfFloatsByEqualityOperator - it should work fine on multiplication
 			return orderedSides[0] * orderedSides[0] + orderedSides[1] * orderedSides[1] == orderedSides[2] * orderedSides[2];
 		}
 
 		protected override double CalculateSquare() {
-			double halfPerimeter = Sides.Sum() / 2;
+			double halfPerimeter = Sides.Select(x => x.Value).Sum() / 2;
 
 			return Math.Sqrt(Sides.Aggregate(halfPerimeter, (value, side) => value * (halfPerimeter - side)));
 		}

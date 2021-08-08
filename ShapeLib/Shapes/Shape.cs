@@ -25,22 +25,5 @@ namespace ShapeLib.Shapes {
 		protected abstract double CalculateSquare();
 
 		public abstract override int GetHashCode();
-
-		/// <summary>
-		///		Validates `double` value in order to make sure it's positive and not infinite number.
-		/// </summary>
-		/// <param name="value">Value to validate.</param>
-		/// <param name="paramName">Value name - it will be thrown in exception if value is not valid.</param>
-		/// <exception cref="ArgumentException">Value is not valid, message contains exact reason.</exception>
-		protected static void ValidateValue(double value, string paramName = "") {
-			switch (value) {
-				case double.NegativeInfinity or double.PositiveInfinity:
-					throw new ArgumentOutOfRangeException(paramName, "Value must be finite.");
-				case double.NaN:
-					throw new ArgumentOutOfRangeException(paramName, "Value must not be NaN.");
-				case <= 0:
-					throw new ArgumentOutOfRangeException(paramName, "Value must be positive.");
-			}
-		}
 	}
 }
