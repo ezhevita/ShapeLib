@@ -69,21 +69,21 @@ namespace ShapeLib.Tests {
 			Assert.IsFalse(triangle.IsRightTriangle);
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNaNSide() {
 			Triangle _ = new(10, double.NaN, 40);
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNegativeInfiniteSide() {
 			Triangle _ = new(10, 20, double.NegativeInfinity);
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNegativeSide() {
 			Triangle _ = new(10, 20, -40);
@@ -97,7 +97,7 @@ namespace ShapeLib.Tests {
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnPositiveInfiniteSide() {
 			Triangle _ = new(10, 20, double.PositiveInfinity);

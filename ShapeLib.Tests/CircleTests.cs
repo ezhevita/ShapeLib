@@ -64,21 +64,21 @@ namespace ShapeLib.Tests {
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNegativeInfiniteRadius() {
 			Circle _ = new(double.NegativeInfinity);
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNegativeRadius() {
 			Circle _ = new(-5);
 			Assert.Fail();
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnPositiveInfiniteRadius() {
 			Circle _ = new(double.PositiveInfinity);
