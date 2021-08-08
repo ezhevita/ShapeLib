@@ -34,15 +34,15 @@ namespace ShapeLib.Shapes {
 		/// <exception cref="ArgumentException">Value is not valid, message contains exact reason.</exception>
 		protected static void ValidateValue(double value, string paramName = "") {
 			if (double.IsNegativeInfinity(value) || double.IsPositiveInfinity(value)) {
-				throw new ArgumentException("Value must be finite.", paramName);
+				throw new ArgumentOutOfRangeException(paramName, "Value must be finite.");
 			}
 
 			if (double.IsNaN(value)) {
-				throw new ArgumentException("Value must not be NaN.", paramName);
+				throw new ArgumentOutOfRangeException(paramName, "Value must not be NaN.");
 			}
 
 			if (value <= 0) {
-				throw new ArgumentException("Value must be positive.", paramName);
+				throw new ArgumentOutOfRangeException(paramName, "Value must be positive.");
 			}
 		}
 	}
