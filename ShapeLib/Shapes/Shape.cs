@@ -33,16 +33,13 @@ namespace ShapeLib.Shapes {
 		/// <param name="paramName">Value name - it will be thrown in exception if value is not valid.</param>
 		/// <exception cref="ArgumentException">Value is not valid, message contains exact reason.</exception>
 		protected static void ValidateValue(double value, string paramName = "") {
-			if (double.IsNegativeInfinity(value) || double.IsPositiveInfinity(value)) {
-				throw new ArgumentOutOfRangeException(paramName, "Value must be finite.");
-			}
-
-			if (double.IsNaN(value)) {
-				throw new ArgumentOutOfRangeException(paramName, "Value must not be NaN.");
-			}
-
-			if (value <= 0) {
-				throw new ArgumentOutOfRangeException(paramName, "Value must be positive.");
+			switch (value) {
+				case double.NegativeInfinity or double.PositiveInfinity:
+					throw new ArgumentOutOfRangeException(paramName, "Value must be finite.");
+				case double.NaN:
+					throw new ArgumentOutOfRangeException(paramName, "Value must not be NaN.");
+				case <= 0:
+					throw new ArgumentOutOfRangeException(paramName, "Value must be positive.");
 			}
 		}
 	}

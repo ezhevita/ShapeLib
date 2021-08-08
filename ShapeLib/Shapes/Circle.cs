@@ -36,7 +36,6 @@ namespace ShapeLib.Shapes {
 
 		public bool Equals(Circle? other) => (other != null) && Radius.Equals(other.Radius);
 
-		// Uses multiplication by itself instead of Math.Pow since it's faster
 		protected override double CalculateSquare() => Math.PI * Radius * Radius;
 
 		public override bool Equals(IShape other) {
