@@ -53,9 +53,8 @@ namespace ShapeLib.Tests {
 			IShape firstCircle = new Circle(10 / Math.Sqrt(Math.PI));
 			IShape secondCircle = new Circle(1);
 
-			// Math.Round is used here because of floating point precision loss
-			Assert.AreEqual(Math.Round(firstCircle.Square, 10), 100.0d);
-			Assert.AreEqual(secondCircle.Square, Math.PI);
+			Assert.AreEqual(firstCircle.Square, 100.0d, 0.0000000001d);
+			Assert.AreEqual(secondCircle.Square, Math.PI, 0.0000000001d);
 		}
 
 		[ExpectedException(typeof(ArgumentException))]
