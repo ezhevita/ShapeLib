@@ -57,7 +57,7 @@ namespace ShapeLib.Tests {
 			Assert.AreEqual(secondCircle.Square, Math.PI, 0.0000000001d);
 		}
 
-		[ExpectedException(typeof(ArgumentException))]
+		[ExpectedException(typeof(ArgumentOutOfRangeException))]
 		[TestMethod]
 		public void ShouldThrowOnNaNRadius() {
 			Circle _ = new(double.NaN);
