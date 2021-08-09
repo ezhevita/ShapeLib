@@ -3,22 +3,22 @@ using System;
 namespace ShapeLib.Shapes {
 	public class Circle : Shape, IEquatable<Circle>, IComparable<Circle> {
 		/// <summary>
-		///		Create circle with specified radius.
+		///     Create circle with specified radius.
 		/// </summary>
 		/// <param name="radius">Radius value of the circle.</param>
 		public Circle(Distance radius) => Radius = radius;
 
 		/// <summary>
-		///		Radius value of the circle.
+		///     Radius value of the circle.
 		/// </summary>
 		public Distance Radius { get; }
 
 		public override string ShapeName => nameof(Circle);
 
 		/// <summary>
-		///		Compares the current circle with another one and returns an integer
-		///		that indicates whether the current instance precedes, follows, or occurs
-		///		in the same position in the sort order as the other object.
+		///     Compares the current circle with another one and returns an integer
+		///     that indicates whether the current instance precedes, follows, or occurs
+		///     in the same position in the sort order as the other object.
 		/// </summary>
 		/// <param name="other">Other circle instance.</param>
 		/// <returns>A value that indicates the relative order of the circles being compared.</returns>

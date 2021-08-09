@@ -3,9 +3,9 @@ using System;
 namespace ShapeLib {
 	public readonly struct Distance : IEquatable<Distance>, IComparable<Distance> {
 		/// <summary>
-		///		Compares the current distance with another one and returns an integer
-		///		that indicates whether the current instance precedes, follows, or occurs
-		///		in the same position in the sort order as the other object.
+		///     Compares the current distance with another one and returns an integer
+		///     that indicates whether the current instance precedes, follows, or occurs
+		///     in the same position in the sort order as the other object.
 		/// </summary>
 		/// <param name="other">Other distance instance.</param>
 		/// <returns>A value that indicates the relative order of the distances being compared.</returns>
@@ -18,21 +18,21 @@ namespace ShapeLib {
 		public override int GetHashCode() => Value.GetHashCode();
 
 		/// <summary>
-		///		Distance value.
+		///     Distance value.
 		/// </summary>
 		public double Value { get; }
 
 		/// <summary>
-		///		Creates distance instance.
+		///     Creates distance instance.
 		/// </summary>
 		/// <param name="value">Underlying distance value.</param>
 		public Distance(double value) {
 			ValidateValue(value);
 			Value = value;
 		}
-		
+
 		/// <summary>
-		///		Validates `double` value in order to make sure it's positive and not infinite number.
+		///     Validates `double` value in order to make sure it's positive and not infinite number.
 		/// </summary>
 		/// <param name="value">Value to validate.</param>
 		/// <param name="paramName">Value name - it will be thrown in exception if value is not valid.</param>

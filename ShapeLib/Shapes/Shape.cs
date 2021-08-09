@@ -2,7 +2,7 @@ using System;
 
 namespace ShapeLib.Shapes {
 	/// <summary>
-	///		General shape class with cacheable square.
+	///     General shape class with cacheable square.
 	/// </summary>
 	public abstract class Shape : IShape {
 		protected Shape() => CalculatedSquare = new Lazy<double>(CalculateSquare);
@@ -10,7 +10,7 @@ namespace ShapeLib.Shapes {
 		private Lazy<double> CalculatedSquare { get; }
 
 		/// <summary>
-		///		Returns square of the shape. Uses cached value if it was already calculated.
+		///     Returns square of the shape. Uses cached value if it was already calculated.
 		/// </summary>
 		public double Square => CalculatedSquare.Value;
 
@@ -19,7 +19,7 @@ namespace ShapeLib.Shapes {
 		public abstract bool Equals(IShape other);
 
 		/// <summary>
-		///		Calculation method of square.
+		///     Calculation method of square.
 		/// </summary>
 		/// <returns>Square value of the shape.</returns>
 		protected abstract double CalculateSquare();
